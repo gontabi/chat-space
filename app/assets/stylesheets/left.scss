@@ -1,0 +1,49 @@
+// -----------------------left--------------------------
+.left{
+  height: 100%;
+  width: 300px;
+  background-color: #2f3e51;
+  float: left;
+
+  .left-top{
+    height: 100px;
+    background-color: #253141;
+    padding: 0 20px;
+    &__name{
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFFFFF;
+      padding: 38px 0;
+      float: left;
+    }
+    &__menu{
+      margin-left: 4.8px;
+      padding: 38px 0;
+      float: right;
+      &__edit-user{
+        float: left;
+      }
+      &__new-group{
+        float: left;
+      }
+
+    }
+  }
+  .left-bottom{
+    background-color: #2f3e51;
+    padding: 0 20px;
+    &__groups{
+      font-size: 15px;
+      color: #FFFFFF;
+      font-weight: bold;
+      padding-top: 20px;
+      &__messages{
+        font-size: 11px;
+        color: #FFFFFF;
+        font-weight: bold;
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
