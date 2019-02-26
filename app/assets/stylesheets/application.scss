@@ -2,3 +2,17 @@
 @import url("all.scss");
 @import url("left.scss");
 @import url("right.scss");
+
+@import "font-awesome";
+@import "config/colors";
+@import "config/font-size";
+@import "modules/flash";
+@import "modules/group";
+// @import "config/reset";
+// @import "mixins/mixin";
+// @import "mixins/vendor_prefix";
+@import "modules/side_bar";
+@import "modules/chat";
+@import "modules/user";
+// @import "messages/messages.scss"
+
