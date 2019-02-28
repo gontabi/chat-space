@@ -1,0 +1,53 @@
+.wrapper
+  / -----------------left--------------------
+  .chat-side
+    .side-header
+      .side-header__box
+        = current_user.name
+      %ul.side-header__menu
+        %li.side-header__menu__edit-user
+        %a{href: "/groups/new"}
+          %i.fa.fa-edit
+        %li.side-header__menu__new-group
+        %a{href: "/users/162/edit"}
+          %i.fab.fa-twitter
+
+    .groups
+      .group
+        - current_user.groups.each do |group|
+          = link_to group_messages_path(group) do
+            .group__group-name
+              = group.name
+              .group__group-name__latest-message
+                = group.show_last_message
+
+
+
+  / ----------------right-------------------
+  .chat-main
+
+    .main-header
+      %a{href: "/groups/#{@group.id}/edit "} edit
+
+      .main-header__left-box
+        .main-header__left-box__current-group
+          = @group.name
+        .main-header__left-box__member-list
+          member :
+          - @group.users .each do |user|
+            = user.name
+
+
+    .messages
+      = render @messages
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+
+        = f.submit 'Send', class: 'form__submit'
