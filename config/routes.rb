@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
   root 'groups#index'
   # root 'messages#index'
@@ -7,4 +8,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
 
   end
+=======
+  root "messages#index"
+>>>>>>> master
 end
