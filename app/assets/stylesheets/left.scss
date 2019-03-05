@@ -1,7 +1,6 @@
 // -----------------------left--------------------------
 .chat-side{
   position: relative;
-  height: 100%;
   width: 300px;
   background-color: #2f3e51;
   float: left;
@@ -39,6 +38,7 @@
     }
   }
   .groups{
+    height: calc(100vh - 120px);
     padding-top: 20px;
     .group{
       background-color: #2f3e51;
