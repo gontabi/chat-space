@@ -58,7 +58,6 @@ $(function(){
   })
 // 削除機能追加
   $(document).on("click",".user-search-remove",function(users){
-    console.log('hoge');
     $(this).parent().remove();
   })
 });
