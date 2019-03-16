@@ -1,5 +1,5 @@
 $(function(){
-  function buildUpdatingHTML(message){
+  function buildMessageHTML(message){
 
     var image = (message.image.url)? `<div class="lower-message">
       <image src = "${ message.image.url}" class ="lower-message__image">
@@ -34,7 +34,7 @@ var updating = function(){
   })
  .done(function(new_messages){
    new_messages.forEach(function(value){
-     var html = buildUpdatingHTML(value);
+     var html = buildMessageHTML(value);
      $(`.messages`).append(html)
    })
   })
