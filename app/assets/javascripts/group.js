@@ -1,4 +1,3 @@
-// ユーザーのメンバーを表示
 $(function(){
   var menberlist = [];
   function buildUsersHTML(users){
@@ -56,7 +55,6 @@ $(function(){
       var html = addUsers(id,name)
    $(`#chat-group-users`).append(html);
   })
-// 削除機能追加
   $(document).on("click",".user-search-remove",function(users){
     $(this).parent().remove();
   })
