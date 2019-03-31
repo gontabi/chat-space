@@ -43,7 +43,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
-  gem 'devise'
 end
 
 group :development do
@@ -60,6 +59,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Hamlを導入
 #haml-railsの他にもコマンド1つでhamlに変換できるためのGemであるerb2hamlもインストールします。
+gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
