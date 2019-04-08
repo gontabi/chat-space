@@ -43,6 +43,5 @@ var updating = function(){
       alert('error');
  })
  }
-}
   setInterval(updating, 5000);
-})
+}
