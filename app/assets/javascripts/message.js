@@ -42,7 +42,7 @@ $(function(){
      $('form')[0].reset();
     })
    .fail(function(){
-      alert('error');
+     alert('errorですよ');
     });
    return false;
   });

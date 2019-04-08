@@ -1,27 +1,27 @@
 $(function(){
   function buildMessageHTML(message){
+      if(window.location.href.match(/\/groups\/\d+\/messages/))
+        var image = (message.image.url)? `<div class="lower-message">
+          <image src = "${ message.image.url}" class ="lower-message__image">
+          </div>` : ``;
 
-    var image = (message.image.url)? `<div class="lower-message">
-      <image src = "${ message.image.url}" class ="lower-message__image">
-      </div>` : ``;
-
-    var html = `
-      <div class="message" data-id = ${message.id}>
-        <div class = "upper-message">
-          <div class = "upper-message__user-name">
-          ${message.user_name}
-          </div>
-          <div class = "upper-message__date">
-          ${message.created_at}
-          </div>
-        </div>
-        <div class = "lower-message">
-            <p class = "lower-message__content">
-            ${message.content}
-            </p>
-        </div>
-        ${image}`
-        return html;
+        var html = `
+          <div class="message" data-id = ${message.id}>
+            <div class = "upper-message">
+              <div class = "upper-message__user-name">
+              ${message.user_name}
+              </div>
+              <div class = "upper-message__date">
+              ${message.created_at}
+              </div>
+            </div>
+            <div class = "lower-message">
+                <p class = "lower-message__content">
+                ${message.content}
+                </p>
+            </div>
+            ${image}`
+            return html;
   }
 
 var updating = function(){
@@ -39,8 +39,8 @@ var updating = function(){
    })
   })
  .fail(function(){
-      alert('error');
+      alert('errorですね〜');
  })
  }
   setInterval(updating, 5000);
-})
+});
