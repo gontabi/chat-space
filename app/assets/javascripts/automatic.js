@@ -38,7 +38,7 @@ var updating = function(){
      var html = buildMessageHTML(value);
      $(`.messages`).append(html)
    })
-  })
+  }
  .fail(function(){
       alert('error');
  })
