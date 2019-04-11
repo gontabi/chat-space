@@ -27,21 +27,21 @@ $(function(){
 var updating = function(){
  var message_id = $('.message:last').data('id');
  if(window.location.href.match(/\/groups\/\d+\/messages/)){
- $.ajax({
-  url: location.href,
-  type: 'GET',
-  data:{id:message_id},
-  dataType: 'json',
-  })
- .done(function(new_messages){
-   new_messages.forEach(function(value){
-     var html = buildMessageHTML(value);
-     $(`.messages`).append(html)
+   $.ajax({
+     url: location.href,
+     type: 'GET',
+     data:{id:message_id},
+     dataType: 'json',
    })
-  }
- .fail(function(){
-      alert('error');
- })
+   .done(function(new_messages){
+     new_messages.forEach(function(value){
+       var html = buildMessageHTML(value);
+       $(`.messages`).append(html)
+     })
+   }
+   .fail(function(){
+     alert('error');
+   })
  }
   setInterval(updating, 5000);
 }
