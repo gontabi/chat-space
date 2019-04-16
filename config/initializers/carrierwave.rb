@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'ここにバケット名を入れます'
-  config.asset_host = 'https://s3-ここにリージョン名を入れます(※例 ap-northeast-1).amazonaws.com/ここにバケット名を入れます'
+  config.fog_directory  = 'gontabi'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/gontabi'
 end
