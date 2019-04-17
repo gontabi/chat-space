@@ -8,7 +8,7 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
-# listen 3000
+listen 3000
 timeout 999999999999
 
 preload_app true
