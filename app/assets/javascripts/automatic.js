@@ -1,48 +1,50 @@
-$(document).on('turbolinks:load', function() {
-  function buildMessageHTML(message){
-
-    var image = (message.image.url)? `<div class="lower-message">
-      <image src = "${ message.image.url}" class ="lower-message__image">
-      </div>` : ``;
-
-    var html = `
-      <div class="message" data-id = ${message.id}>
-        <div class = "upper-message">
-          <div class = "upper-message__user-name">
-          ${message.user_name}
-          </div>
-          <div class = "upper-message__date">
-          ${message.created_at}
-          </div>
-        </div>
-        <div class = "lower-message">
-            <p class = "lower-message__content">
-            ${message.content}
-            </p>
-        </div>
-        ${image}`
-        return html;
+$(function(){
+  function buildHTML(message){
+    var image = ""
+    message.image.url !== null ? image = `<img src="${message.image.url}" class="lower-message__image">` : image = ""
+      var html = `<div class="message" data-id="${ message.id }">
+                    <div class = "upper-message">
+                      <div class = "upper-message__user-name">
+                      ${message.user_name}
+                      </div>
+                      <div class = "upper-message__date">
+                      ${message.created_at}
+                      </div>
+                    </div>
+                    <div class = "lower-message">
+                      <p class = "lower-message__content">
+                      ${message.content}
+                      </p>
+                    </div>
+                    ${ image }`
+                    return html;
   }
 
-  var updating = function(){
-    var message_id = $('.message:last').data('id');
-    if(window.location.href.match(/\/groups\/\d+\/messages/)){
-      $.ajax({
-        url: location.href,
-        type: 'GET',
-        data:{id:message_id},
-        dataType: 'json'
-      })
-      .done(function(new_messages){
-        new_messages.forEach(function(value){
-          var html = buildMessageHTML(value);
-          $(`.messages`).append(html)
-        })
-      })
-      .fail(function(){
-        alert('error');
-      })
+  $(function(){
+    setInterval(update, 5000)
+  });
+
+  function update(){
+    if($('.messages')[0]){
+      var message_id = $('.message:last').data('id')
+    } else {
+      var message_id = 0
     }
-    setInterval(updating, 5000);
+    var href = window.location.href
+    $.ajax({
+      url: href,
+      type: 'GET',
+      data: { id: message_id },
+      dataType: 'json',
+    })
+    .always(function(data){
+      $.each(data, function(i, data){
+      var html = buildHTML(data);
+      $('.messages').append(html);
+      $('.main').animate({
+        scrollTop: $('.messages')[0].scrollHeight
+      })
+      })
+    })
   }
-})
+});
