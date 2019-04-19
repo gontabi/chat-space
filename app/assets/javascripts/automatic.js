@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function buildMessageHTML(message){
 
     var image = (message.image.url)? `<div class="lower-message">

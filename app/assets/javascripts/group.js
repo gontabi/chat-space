@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   var menberlist = [];
   function buildUsersHTML(users){
     var html = `<div class="chat-group-user clearfix">
